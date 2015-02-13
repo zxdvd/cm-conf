@@ -1,12 +1,10 @@
 {% from "general/map.jinja" import pkgs with context %}
 
 # general packages to be installed
-tools:
-  pkg.installed:
-    - pkgs:
-    {% for pkg in pkgs.pkgs %}
-      - {{ pkg }}
-    {% endfor %}
+{% for pkg in pkgs.pkgs %}
+{{ pkg }}:
+  pkg.installed
+{% endfor %}
 
 #my dotfile repository
 git-confs:
@@ -15,7 +13,7 @@ git-confs:
     - target: /home/zxd/git/confs
     - user: zxd
     - require:
-      - pkg: tools
+      - pkg: git
 
 {% for f in pkgs.confs %}
 /home/zxd/{{ f }}:

@@ -1,0 +1,5 @@
+{% set pip = salt['grains.filter_by']({
+    'default': {
+        'pkgs': ['click', 'lxml', 'flask', 'httpie'],
+    },
+}) %}

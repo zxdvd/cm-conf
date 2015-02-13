@@ -1,5 +1,21 @@
-{% set pip = salt['grains.filter_by']({
+{% set pip2 = salt['grains.filter_by']({
     'default': {
-        'pkgs': ['lxml', 'flask'],
+        'pkgs': ['pyzmq'],
+        'pip2': '/usr/bin/pip2',
+    },
+    'Debian': {
+        'pkgs': ['pyzmq'],
+        'pip2': '/usr/local/bin/pip2',
+    },
+}) %}
+
+{% set pip3 = salt['grains.filter_by']({
+    'default': {
+        'pkgs': ['click', 'flask', 'httpie', 'lxml', 'tornado'],
+        'pip3': '/usr/bin/pip3',
+    },
+    'Debian': {
+        'pkgs': ['click', 'flask', 'httpie', 'lxml', 'tornado'],
+        'pip3': '/usr/local/bin/pip3',
     },
 }) %}

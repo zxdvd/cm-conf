@@ -1,7 +1,12 @@
 {% set pkgs = salt['grains.filter_by']({
     'Suse': {
-        'pkgs': ['ctags', 'docker', 'docker-bash-completion',
-                 'git', 'mutt', 'nginx', 'nmap', 'smplayer',
+        'pkgs': ['git', 'libxslt-devel', 'mutt', 'nginx', 'nmap', 'smplayer',
+                 'tmux'],
+        'confs': ['.alias', '.bashrc', '.gitconfig',
+                  '.muttrc', '.tmux.conf', '.vimrc'],
+    },
+    'Debian': {
+        'pkgs': ['git', 'libxslt1-dev', 'mutt', 'nginx', 'nmap', 'smplayer',
                  'tmux'],
         'confs': ['.alias', '.bashrc', '.gitconfig',
                   '.muttrc', '.tmux.conf', '.vimrc'],
